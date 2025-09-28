@@ -2,6 +2,8 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const cors = require('cors');
+const env = require('dotenv');
+env.config();
 
 // Use dynamic import for node-fetch (since it's ESM-only)
 const fetch = (...args) =>
@@ -9,7 +11,7 @@ const fetch = (...args) =>
 
 // ------------- APP SETUP -------------
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const Genres = {
   28: "Action",
@@ -57,8 +59,8 @@ const getRandomItems = (arr, num) => {
 app.use(cors());
 app.use(express.json()); // To parse JSON bodies
 
-const apiKey = [api-key]; //enter apikey here
-const uri = 'mongodb+srv://mustafatahir0427:Z6WvBlNRd4fmmuuv@creativeproject.in7k0gw.mongodb.net/?retryWrites=true&w=majority&appName=CreativeProject';
+const apiKey = process.env.TMDB_API_KEY;
+const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 const database = client.db('creativeproject');
 
