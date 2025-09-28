@@ -64,6 +64,8 @@ const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 const database = client.db('creativeproject');
 
+app.get('/', (req, res) => res.status(200).json({ message: 'bruh' }));
+
 app.post('/login', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
