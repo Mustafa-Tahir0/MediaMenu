@@ -1,0 +1,107 @@
+.acc {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+.acc form {
+    background-color: rgba(25, 25, 25, 0.9);
+    padding: 2.5rem;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.acc h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e50914;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.acc label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.acc input[type="text"],
+.acc input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.acc input[type="text"]:focus,
+.acc input[type="password"]:focus {
+    outline: none;
+    background-color: #454545;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.5);
+}
+
+.acc input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+.acc input[type="submit"]:hover {
+    background-color: #f40612;
+}
+
+.acc a {
+    color: #e50914;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.acc a:hover {
+    color: #f40612;
+    text-decoration: underline;
+}
+
+.acc .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+    .acc form {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
