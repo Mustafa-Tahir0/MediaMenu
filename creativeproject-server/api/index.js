@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const express = require('express');
 const cors = require('cors');
 const env = require('dotenv');
