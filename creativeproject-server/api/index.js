@@ -109,7 +109,7 @@ app.get('/watchlist', async (req, res) => {
     const all = await watchlist.find({ user }).toArray();
     const moviePromises = all.filter(media => media.movie).map(async (media) => {
       try {
-        const response = await fetch(`http://localhost:3000/movieDetails?id=${media.media_id}`);
+        const response = await fetch(`https://media-menu.vercel.app/movieDetails?id=${media.media_id}`);
         if (response.ok) {
           return await response.json();
         }
@@ -121,7 +121,7 @@ app.get('/watchlist', async (req, res) => {
     });
     const tvshowPromises = all.filter(media => !media.movie).map(async (media) => {
       try {
-        const response = await fetch(`http://localhost:3000/tvDetails?id=${media.media_id}`);
+        const response = await fetch(`https://media-menu.vercel.app/tvDetails?id=${media.media_id}`);
         if (response.ok) {
           return await response.json();
         }
@@ -312,7 +312,7 @@ app.post('/preferencer', async (req, res) => {
 
   try {
     try {
-      const response = await fetch('http://localhost:3000/graph', {
+      const response = await fetch('https://media-menu.vercel.app/graph', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(graph)
@@ -324,7 +324,7 @@ app.post('/preferencer', async (req, res) => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/high', {
+      const response = await fetch('https://media-menu.vercel.app/high', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(high)

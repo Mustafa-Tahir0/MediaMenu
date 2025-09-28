@@ -29,7 +29,7 @@ export default function HomeScreen() {
     useEffect(() => {
         const getMovies = async () => {
             try {
-                const response = await fetch('http://localhost:3000/movies');
+                const response = await fetch('https://media-menu.vercel.app/movies');
                 if (response.ok) {
                     const data = await response.json();
                     setMovieList(data.results);
@@ -45,7 +45,7 @@ export default function HomeScreen() {
         };
         const getShows = async () => {
             try {
-                const response = await fetch('http://localhost:3000/tvshows');
+                const response = await fetch('https://media-menu.vercel.app/tvshows');
                 if (response.ok) {
                     const data = await response.json();
                     setTVList(data.results);
@@ -61,7 +61,7 @@ export default function HomeScreen() {
         };
         const getRecMovies = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/recmovies?id=${encodeURIComponent(localStorage.getItem('id'))}`);
+                const response = await fetch(`https://media-menu.vercel.app/recmovies?id=${encodeURIComponent(localStorage.getItem('id'))}`);
                 if (response.ok) {
                     const data = await response.json();
                     setRecMovieList(data.results);
@@ -77,7 +77,7 @@ export default function HomeScreen() {
         };
         const getRecShows = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/recshows?id=${encodeURIComponent(localStorage.getItem('id'))}`);
+                const response = await fetch(`https://media-menu.vercel.app/recshows?id=${encodeURIComponent(localStorage.getItem('id'))}`);
                 if (response.ok) {
                     const data = await response.json();
                     setRecTVList(data.results);
@@ -123,7 +123,7 @@ export default function HomeScreen() {
         const getSimilar = async () => {
             try {
                 const media = selectedMedia.title ? 'movie' : 'tv';
-                const response = await fetch(`http://localhost:3000/similar?id=${encodeURIComponent(selectedMedia.id)}&media=${encodeURIComponent(media)}`)
+                const response = await fetch(`https://media-menu.vercel.app/similar?id=${encodeURIComponent(selectedMedia.id)}&media=${encodeURIComponent(media)}`)
                 if (response.ok) {
                     const data = await response.json();
                     setSimilarList(data.results);
@@ -147,7 +147,7 @@ export default function HomeScreen() {
 
     const search = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/search?query=${encodeURIComponent(query)}`, {
+            const response = await fetch(`https://media-menu.vercel.app/search?query=${encodeURIComponent(query)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -167,7 +167,7 @@ export default function HomeScreen() {
 
     const getWatchlist = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/watchlist?id=${encodeURIComponent(localStorage.getItem('id'))}`);
+            const response = await fetch(`https://media-menu.vercel.app/watchlist?id=${encodeURIComponent(localStorage.getItem('id'))}`);
             if (response.ok) {
                 const data = await response.json();
                 setWatchList(data.all);
@@ -184,7 +184,7 @@ export default function HomeScreen() {
 
     const postWatchlist = async (media) => {
         try {
-            const response = await fetch('http://localhost:3000/postWatchlist', {
+            const response = await fetch('https://media-menu.vercel.app/postWatchlist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -206,7 +206,7 @@ export default function HomeScreen() {
 
     const removeWatchlist = async (media) => {
         try {
-            const response = await fetch('http://localhost:3000/removeWatchlist', {
+            const response = await fetch('https://media-menu.vercel.app/removeWatchlist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -228,7 +228,7 @@ export default function HomeScreen() {
 
     const preferencer = async (media) => {
         try {
-            const response = await fetch('http://localhost:3000/preferencer', {
+            const response = await fetch('https://media-menu.vercel.app/preferencer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -19,7 +19,7 @@ export default function GraphScreen() {
     useEffect(() => {
         const getGraphData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/getGraphData?id=${encodeURIComponent(localStorage.getItem('id'))}`);
+                const response = await fetch(`https://media-menu.vercel.app/getGraphData?id=${encodeURIComponent(localStorage.getItem('id'))}`);
                 if (response.ok) {
                     const data = await response.json();
                     setData(data.final);

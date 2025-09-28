@@ -15,7 +15,7 @@ export default function Create() {
     const handleCreateLogin = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/create', {
+            const response = await fetch('https://media-menu.vercel.app/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

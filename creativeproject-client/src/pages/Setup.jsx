@@ -24,7 +24,7 @@ export default function SetupScreen() {
 
     const search = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/search?query=${encodeURIComponent(query)}`, {
+            const response = await fetch(`https://media-menu.vercel.app/search?query=${encodeURIComponent(query)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ export default function SetupScreen() {
 
     const preferencer = async (media) => {
         try {
-            const response = await fetch('http://localhost:3000/preferencer', {
+            const response = await fetch('https://media-menu.vercel.app/preferencer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
