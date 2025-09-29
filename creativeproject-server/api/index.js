@@ -2,7 +2,6 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const cors = require('cors');
-const serverless = require('serverless-http');
 const env = require('dotenv');
 env.config();
 
@@ -12,6 +11,7 @@ const fetch = (...args) =>
 
 // ------------- APP SETUP -------------
 const app = express();
+const port = process.env.PORT || 3000;
 
 const Genres = {
   28: "Action",
@@ -482,4 +482,6 @@ app.get('/recshows', async (req, res) => {
   res.status(200).json({ results: getRandomItems(movies.flat(), 20) });
 });
 
-module.exports = serverless(app);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
