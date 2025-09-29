@@ -60,9 +60,16 @@ app.use(cors());
 app.use(express.json()); // To parse JSON bodies
 
 const apiKey = process.env.TMDB_API_KEY;
-const uri = process.env.MONGO_URI;
-const client = new MongoClient(uri);
-const database = client.db('creativeproject');
+let client;
+let db;
+async function getDb() {
+  if (!client) {
+    client = new MongoClient(process.env.MONGO_URI);
+    await client.connect();
+    db = client.db('creativeproject');
+  }
+  return db;
+}
 
 app.get('/', (req, res) => res.status(200).json({ message: 'bruh' }));
 
@@ -70,6 +77,7 @@ app.post('/login', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   try {
+    const database = await getDb();
     const users = database.collection('users');
     const user = await users.findOne({ username });
     if (!user) {
@@ -91,6 +99,7 @@ app.post('/create', async (req, res) => {
   const username = req.body.username;
   try {
     const password = await bcrypt.hash(req.body.password, 10);
+    const database = await getDb();
     const users = database.collection('users');
     const newUser = { username: username, password: password };
     const result = await users.insertOne(newUser);
@@ -106,6 +115,7 @@ app.post('/create', async (req, res) => {
 app.get('/watchlist', async (req, res) => {
   const user = req.query.id;
   try {
+    const database = await getDb();
     const watchlist = database.collection('watchlist');
     const all = await watchlist.find({ user }).toArray();
     const moviePromises = all.filter(media => media.movie).map(async (media) => {
@@ -186,6 +196,7 @@ app.post('/postWatchlist', async (req, res) => {
   const user = req.body.user;
   const media_id = req.body.id;
   const movie = req.body.movie;
+  const database = await getDb();
   try {
     const watchlist = database.collection('watchlist');
     const newWatch = { user: user, media_id: media_id, movie: movie };
@@ -202,6 +213,7 @@ app.post('/removeWatchlist', async (req, res) => {
   const user = req.body.user;
   const media_id = req.body.id;
   const movie = req.body.movie;
+  const database = await getDb();
   try {
     const watchlist = database.collection('watchlist');
     const oldWatch = { user: user, media_id: media_id, movie: movie };
@@ -345,6 +357,7 @@ app.post('/preferencer', async (req, res) => {
 
 app.post('/high', async (req, res) => {
   const inserts = req.body;
+  const database = await getDb();
   try {
     const high = database.collection('high');
     const result = await high.insertMany(inserts);
@@ -358,6 +371,7 @@ app.post('/high', async (req, res) => {
 
 app.post('/graph', async (req, res) => {
   const inserts = req.body;
+  const database = await getDb();
   try {
     const graph = database.collection('graph');
     const result = await graph.insertMany(inserts);
@@ -371,6 +385,7 @@ app.post('/graph', async (req, res) => {
 
 app.get('/getGraphData', async (req, res) => {
   const user = req.query.id;
+  const database = await getDb();
   try {
     const graph = database.collection('graph');
     const all = await graph.find({ user }).toArray();
@@ -402,6 +417,7 @@ app.get('/getGraphData', async (req, res) => {
 
 app.get('/recmovies', async (req, res) => {
   const user = req.query.id;
+  const database = await getDb();
   const high = database.collection('high');
   const all = await high.find({ user: user, movie: true }).toArray();
   const fiveRandomPromises = getRandomItems(all, 5).map(async (media) => {
@@ -431,6 +447,7 @@ app.get('/recmovies', async (req, res) => {
 
 app.get('/recshows', async (req, res) => {
   const user = req.query.id;
+  const database = await getDb();
   const high = database.collection('high');
   const all = await high.find({ user: user, movie: false }).toArray();
   const fiveRandomPromises = getRandomItems(all, 5).map(async (media) => {
