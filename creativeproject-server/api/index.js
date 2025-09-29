@@ -12,7 +12,6 @@ const fetch = (...args) =>
 
 // ------------- APP SETUP -------------
 const app = express();
-const port = process.env.PORT || 3000;
 
 const Genres = {
   28: "Action",
@@ -483,4 +482,4 @@ app.get('/recshows', async (req, res) => {
   res.status(200).json({ results: getRandomItems(movies.flat(), 20) });
 });
 
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
