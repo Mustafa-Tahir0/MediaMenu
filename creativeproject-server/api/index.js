@@ -2,6 +2,7 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const cors = require('cors');
+const serverless = require('serverless-http');
 const env = require('dotenv');
 env.config();
 
