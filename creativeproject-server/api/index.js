@@ -64,9 +64,15 @@ let client;
 let db;
 async function getDb() {
   if (!client) {
-    client = new MongoClient(process.env.MONGO_URI);
-    await client.connect();
-    db = client.db('creativeproject');
+    try {
+      client = new MongoClient(process.env.MONGO_URI);
+      await client.connect();
+      db = client.db('creativeproject');
+      console.log("MongoDB connected");
+    } catch (err) {
+      console.error("MongoDB connection error:", err);
+      throw err;
+    }
   }
   return db;
 }
@@ -79,6 +85,7 @@ app.post('/login', async (req, res) => {
   try {
     const database = await getDb();
     const users = database.collection('users');
+    console.log("Database object:", database);
     const user = await users.findOne({ username });
     if (!user) {
       return res.status(404).json({ message: 'invalid username' });
@@ -475,6 +482,6 @@ app.get('/recshows', async (req, res) => {
   res.status(200).json({ results: getRandomItems(movies.flat(), 20) });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server running on http://localhost:${port}`);
+// });
