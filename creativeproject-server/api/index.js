@@ -482,6 +482,4 @@ app.get('/recshows', async (req, res) => {
   res.status(200).json({ results: getRandomItems(movies.flat(), 20) });
 });
 
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port}`);
-// });
+module.exports.handler = serverless(app);
