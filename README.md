@@ -266,10 +266,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👨‍💻 Developer
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
+**Mustafa Tahir**
+- GitHub: [@yourusername](https://github.com/Mustafa-Tahir0)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/mustafatahir09)
+- Portfolio: [yourportfolio.com](https://mustafatahir.vercel.app)
 
 ## 🙏 Acknowledgments
 
