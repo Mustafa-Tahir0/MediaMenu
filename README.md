@@ -264,12 +264,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 Developer
+## 👨‍💻 Author
 
 **Mustafa Tahir**
-- GitHub: [@yourusername](https://github.com/Mustafa-Tahir0)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/mustafatahir09)
-- Portfolio: [yourportfolio.com](https://mustafatahir.vercel.app)
+- GitHub: [@Mustafa-Tahir0](https://github.com/Mustafa-Tahir0)
+- LinkedIn: [Mustafa Tahir](https://www.linkedin.com/in/mustafatahir09)
+- Email: mustafa.tahir0427@gmail.com
+- Portfolio: [Live Site](https://mustafatahir.vercel.app)
 
 ## 🙏 Acknowledgments
 
