@@ -272,6 +272,11 @@ This project is open source and available under the [MIT License](LICENSE).
 - Email: mustafa.tahir0427@gmail.com
 - Portfolio: [Live Site](https://mustafatahir.vercel.app)
 
+**Gopal Bhandari**
+- GitHub: [@Under-1evel](https://github.com/Under-1evel)
+- LinkedIn: [Gopal Bhandari](https://www.linkedin.com/in/gopal-bhandari-info)
+- Email: gopalbh.0206@gmail.com
+
 ## 🙏 Acknowledgments
 
 - [The Movie Database (TMDB)](https://www.themoviedb.org/) for providing comprehensive movie and TV data
