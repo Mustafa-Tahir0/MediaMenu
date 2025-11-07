@@ -23,8 +23,7 @@ A full-stack personalized media recommendation platform that helps users discove
 
 ## 🚀 Live Demo
 
-**Frontend**: [media-menu-client.vercel.app](https://media-menu.vercel.app)  
-**Backend API**: [media-menu.vercel.app](https://media-menu.vercel.app)
+**Website**: [media-menu-client.vercel.app](https://mediamenu.vercel.app)  
 
 ## 🛠️ Tech Stack
 
@@ -270,7 +269,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - GitHub: [@Mustafa-Tahir0](https://github.com/Mustafa-Tahir0)
 - LinkedIn: [Mustafa Tahir](https://www.linkedin.com/in/mustafatahir09)
 - Email: mustafa.tahir0427@gmail.com
-- Portfolio: [Live Site](https://mustafatahir.vercel.app)
+- Portfolio: [My Website](https://mustafatahir.vercel.app)
 
 **Gopal Bhandari**
 - GitHub: [@Under-1evel](https://github.com/Under-1evel)
