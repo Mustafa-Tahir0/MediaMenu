@@ -23,7 +23,7 @@ A full-stack personalized media recommendation platform that helps users discove
 
 ## 🚀 Live Demo
 
-**Website**: [media-menu-client.vercel.app](https://mediamenu.vercel.app)  
+**Website**: [View It Live!](https://mediamenu.vercel.app)  
 
 ## 🛠️ Tech Stack
 
